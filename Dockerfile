@@ -20,10 +20,10 @@ RUN curl https://deb.nodesource.com/node_8.x/pool/main/n/nodejs/nodejs_8.9.4-1no
  && rm node.deb
 
 #download mineos from github
+COPY mineos.conf /etc/mineos.conf
 RUN mkdir /usr/games/minecraft \
   && cd /usr/games/minecraft \
-  && git clone --depth=1 https://github.com/bethington/mineos-node.git . \
-  && cp mineos.conf /etc/mineos.conf \
+  && git clone --depth=1 https://github.com/hexparrot/mineos-node.git . \
   && chmod +x webui.js mineos_console.js service.js
 
 #build npm deps and clean up apt for image minimalization
